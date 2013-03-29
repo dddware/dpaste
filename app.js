@@ -28,7 +28,7 @@ app.get('/paste/:id', function(req, res)
     Paste.findById(req.params.id, function(err, paste)
     {
         if (err)
-            return handleError(err);
+            console.log(err);
         res.render('index.jade', { title: 'dpaste '+paste.id, paste: paste.paste, fruit: paste.fruit });
     });
 });
@@ -43,7 +43,7 @@ app.post('/paste/new', function(req, res)
     paste.save(function(err)
     {
         if (err)
-            return handleError(err);
+            console.log(err);
         res.redirect('/paste/' + paste.id);
     });
 });
