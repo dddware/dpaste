@@ -1,12 +1,31 @@
 extends layout
 
 block content
-    h1= title
-    if locals.paste
-        div
-        | #{paste}
-        | (#{fruit})
-    else
-        form(method='post', action='/paste/new')
-            textarea(name='paste')
-            button(type='submit') Go
+    #container
+    	header
+    		h1.title DDD
+    		a.formToggle +
+
+	    .main
+		    section.content
+			    if locals.paste
+			        ul.meta
+			        	li.date #{date} 
+			        	li.language
+			        	li.fruits 
+			        		i(class='fruit fruit#{date}')
+
+			        div
+			        	code.paste #{paste}
+			    else
+		    		img(src='/images/logo.svg')
+
+
+		        form(method='post', action='/paste/new', class='leForm #{active}')
+		            textarea(name='paste')
+	            	button(type='submit', class='btn-red') Add
+
+	    footer
+
+	   	script(src="/javascripts/jquery-1.9.1.min.js")
+	   	script(src="/javascripts/script.js")
