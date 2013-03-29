@@ -31,7 +31,7 @@ div {
 }
 #container footer {
   background: #95c11e;
-  color: white;
+  color: #fff;
   margin: 0;
   width: 100%;
   position: absolute;
@@ -51,7 +51,7 @@ a:hover {
   color: #e5452b;
 }
 a:active {
-  color: #777777;
+  color: #777;
 }
 .title {
   float: left;
@@ -64,7 +64,7 @@ a:active {
   text-align: center;
   cursor: pointer;
   font-size: 4em;
-  font-family: arial,sans;
+  font-family: arial, sans;
   line-height: 80px;
   height: 80px;
   width: 80px;
@@ -93,11 +93,11 @@ a:active {
   padding: 20px;
   margin: 0px auto 0 auto;
   border-radius: 1px;
-  border-top: 1px solid black;
-  border-bottom: 1px solid white;
-  background: #333333;
-  color: #eeeeee;
-  text-shadow: 0px 1px 0px black;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #fff;
+  background: #333;
+  color: #eee;
+  text-shadow: 0px 1px 0px #000;
   white-space: pre-wrap;
 }
 .meta {
@@ -127,7 +127,7 @@ a:active {
   margin-left: 6px;
   vertical-align: middle;
   display: inline-block;
-  background-image: url('../images/fruit.png');
+  background-image: url("../images/fruit.png");
 }
 .fruit.fruit1 {
   background-position: 0px 0px;
@@ -167,6 +167,9 @@ a:active {
   padding: 20px;
   background: #f4eeea;
 }
+.leForm.active {
+  display: block;
+}
 .leForm textarea {
   width: 100%;
   min-height: 150px;
@@ -176,25 +179,25 @@ a:active {
 button,
 .btn {
   display: block;
-  color: white;
+  color: #fff;
   border-radius: 1px;
   padding: 10px 15px;
   border: none;
-  background-color: #333333;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
-  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.3);
+  background-color: #333;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.3);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.3);
   -webkit-transition: all 0.1s;
   transition: all 0.1s;
 }
 button:hover,
 .btn:hover {
-  color: white;
-  background-color: #555555;
+  color: #fff;
+  background-color: #555;
 }
 button:active,
 .btn:active {
-  color: white;
-  background-color: #111111;
+  color: #fff;
+  background-color: #111;
 }
 .btn-little {
   padding: 3px 5px;

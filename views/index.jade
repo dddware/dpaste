@@ -2,30 +2,30 @@ extends layout
 
 block content
     #container
-    	header
-    		h1.title DDD
-    		a.formToggle +
+        header
+            h1.title dpaste
+            a.formToggler +
 
-	    .main
-		    section.content
-			    if locals.paste
-			        ul.meta
-			        	li.date #{date} 
-			        	li.language
-			        	li.fruits 
-			        		i(class='fruit fruit#{date}')
+        .main
+            section.content
+                if locals.paste
+                    ul.meta
+                        li.date #{date} 
+                        li.language
+                        li.fruits 
+                            i(class='fruit fruit#{date}')
 
-			        div
-			        	code.paste #{paste}
-			    else
-		    		img(src='/images/logo.svg')
+                    div
+                        code.paste #{paste}
+                else
+                    img(src='/images/logo.svg', class='logo', alt='ddd')
 
 
-		        form(method='post', action='/paste/new', class='leForm #{active}')
-		            textarea(name='paste')
-	            	button(type='submit', class='btn-red') Add
+                form(method='post', action='/paste/new', class='leForm #{active}')
+                    textarea(name='paste')
+                    button(type='submit', class='btn-red') Add
 
-	    footer
+        footer
 
-	   	script(src="/javascripts/jquery-1.9.1.min.js")
-	   	script(src="/javascripts/script.js")
+        script(src="/javascripts/jquery-1.9.1.min.js")
+        script(src="/javascripts/script.js")

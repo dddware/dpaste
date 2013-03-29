@@ -20,7 +20,7 @@ var Paste = mongoose.model('Pat', mongoose.Schema({ paste: 'string', fruit: 'num
 // Routes
 app.get('/', function(req, res)
 {
-    res.render('index.jade', { title: 'dpaste' });
+    res.render('index.jade', { title: 'dpaste', active: 'active' });
 });
 
 app.get('/paste/:id', function(req, res)
@@ -29,7 +29,7 @@ app.get('/paste/:id', function(req, res)
     {
         if (err)
             console.log(err);
-        res.render('index.jade', { title: 'dpaste '+paste.id, paste: paste.paste, fruit: paste.fruit });
+        res.render('index.jade', { title: 'dpaste '+paste.id, paste: paste.paste, fruit: paste.fruit, date: paste.created_at, active: '' });
     });
 });
 
