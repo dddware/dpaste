@@ -1,0 +1,12 @@
+extends layout
+
+block content
+    h1= title
+    if locals.paste
+        div
+        | #{paste}
+        | (#{fruit})
+    else
+        form(method='post', action='/paste/new')
+            textarea(name='paste')
+            button(type='submit') Go
