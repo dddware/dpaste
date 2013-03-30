@@ -10,7 +10,7 @@ block content
 
         .main
             section.content
-                form(method='post', action='/paste/new', class='leForm #{active}')
+                form(method='post', action='/paste/new', class='leForm #{active}', autocomplete='off')
                     textarea(name='paste', placeholder="var dpaste = 'Angry code paster for you and your family';")
                     button(type='submit', class='btn-red') Add
                     span.alert Let's put some code in there, duh?
@@ -19,9 +19,23 @@ block content
                     ul.meta
                         li.date #{date}
                         li.link
-                            a(href='#{link}', title='Permalink')= link
+                            a(href='#{link}', data-base-href='#{link}', title='Permalink')= link
                         li.fruits 
                             i(class='fruit fruit#{fruit}')
+                        li.lang
+                            form(name='gabuh')
+                                select(name='lang', autocomplete='off')
+                                    option(value='') Plain text
+                                    option(value='javascript') JavaScript
+                                    option(value='coffeescript') CoffeeScript
+                                    option(value='css') CSS
+                                    option(value='html') HTML
+                                    option(value='php') PHP
+                                    option(value='ruby') Ruby
+                                    option(value='python') Python
+                                    option(value='go') Go
+                                    option(value='haskell') Haskell
+                                    option(value='shell') Shell
 
                     div
                         code.paste #{paste}
@@ -44,3 +58,4 @@ block content
 
         script(src="/javascripts/jquery-1.9.1.min.js")
         script(src="/javascripts/script.js")
+        script(src="/javascripts/rainbow-custom.min.js")

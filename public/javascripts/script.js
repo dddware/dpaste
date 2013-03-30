@@ -38,17 +38,15 @@
         }
     }
 
-    var leForm;
-
-    function setFormHeight()
+    var leForm, code, setFormHeight = function()
     {
-        var height = $('#container').height() - ($('header').outerHeight() + $('footer').outerHeight());
+        var height = $('body').height() - 283;
         leForm.find('textarea').height(height);
-    }
+    };
 
     $(function()
     {
-        leForm = $('.leForm');
+        leForm = $('.leForm'), code = $('code');
 
         $('.formToggler').on('click', function () {
             leForm.slideToggle();
@@ -67,7 +65,28 @@
                 event.preventDefault();
                 leForm.addClass('alerted');
             }
-        })
+        });
+
+        // Rainbow
+        if (code.length)
+        {
+            var link = $('li.link a'), lang = $('li.lang select');
+
+            lang.on('change', function()
+            {
+                location.hash = lang.val();
+                location.reload();
+            });
+
+            if (hash = location.hash.substring(1))
+            {
+                var new_href = link.data('base-href') + '#' + hash;
+                link.attr('href', new_href).text(new_href);
+                lang.find('option[value="' + hash + '"]').prop('selected', true);
+                code.attr('data-language', hash);
+                Rainbow.color();
+            }
+        }
 
         setFormHeight();
         initPlaceHolders();

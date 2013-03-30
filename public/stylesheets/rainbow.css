@@ -1,0 +1,72 @@
+code {
+  font-family: monospace;
+}
+code span {
+  -moz-transition: color 0.8s ease-in;
+  -o-transition: color 0.8s ease-in;
+  -webkit-transition: color 0.8s ease-in;
+  transition: color 0.8s ease-in;
+}
+.animate {
+  color: #fff !important;
+}
+.red {
+  color: #c53018;
+}
+.orange {
+  color: #f03200;
+}
+.yellow {
+  color: #edc51d;
+}
+.green {
+  color: #95c11e;
+}
+.blue {
+  color: #0081f5;
+}
+.indigo {
+  color: #5000f5;
+}
+.violet {
+  color: #7d05f5;
+}
+.comment {
+  color: #223576;
+}
+.javascript .comment {
+  color: #535353;
+}
+.meta,
+.entity {
+  color: #f03200;
+}
+.support {
+  color: #006dcf;
+}
+.string {
+  color: #95c11e;
+}
+.string.regexp {
+  color: #fff;
+}
+.support.attribute,
+.support.css-property,
+.support.regex.modifier {
+  color: #0087ff;
+}
+.support.value {
+  color: #1bbbcf;
+}
+.integer,
+.constant {
+  color: #d8fa3c;
+}
+.keyword,
+.selector,
+.storage {
+  color: #edc51d;
+}
+.constant.regex.escape {
+  color: #d8fa3c;
+}

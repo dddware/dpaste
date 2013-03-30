@@ -12,6 +12,8 @@ app.configure(function()
     app.use(require('stylus').middleware({ src: __dirname + '/public' }));
     app.use(app.router);
     app.use(express.static(__dirname + '/public'));
+    //app.expectedHost = 'www.dpaste.cc';
+    app.expectedHost = '91.121.20.52:3000';
 });
 
 // Model
@@ -20,12 +22,16 @@ var Paste = mongoose.model('Paste', mongoose.Schema({ paste: 'string', created_a
 // Middleware
 app.all('*', function(req, res, next)
 {
-    var host = req.get('host');
+    var host = req.get('host'), protocol = req.protocol + '://';
 
-    // ...
+    if (host != app.expectedHost)
+        res.redirect(protocol + app.expectedHost + req.url);
 
-    app.locals.base = req.protocol + "://" + host;
-    next();
+    else
+    {
+        app.locals.base = protocol + host;
+        next();
+    }
 });
 
 // Routes
@@ -65,12 +71,18 @@ app.post('/paste/new', function(req, res)
         {
             if (err)
                 console.log(err);
-            //if (req.headers.user-agent == )
-            res.redirect('/paste/' + paste.id);
+
+            var new_paste = '/paste/' + paste.id;
+
+            if (req.headers['user-agent'].match(/curl/))
+                res.send(201, app.locals.base + new_paste);
+            else
+                res.redirect(new_paste);
         });
     }
 
-    res.redirect('/');
+    else
+        res.redirect('/');
 });
 
 app.listen(3000);
