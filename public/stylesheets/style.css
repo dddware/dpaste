@@ -17,6 +17,8 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
+  background: url("/images/logo.svg") no-repeat center center;
+  background-size: 200px;
 }
 div {
   margin: 0px;
@@ -50,14 +52,14 @@ hr {
 }
 a {
   font-family: Arial, sans;
-  color: #95c11e;
+  color: #fff;
   text-decoration: none;
 }
 a:hover {
   color: #e5452b;
 }
 a:active {
-  color: #777;
+  color: #95c11e;
 }
 .title {
   float: left;
@@ -94,6 +96,7 @@ a:active {
 }
 header .main {
   overflow: hidden;
+  padding-bottom: 4px;
 }
 header .main,
 footer .main {
@@ -103,6 +106,7 @@ footer .main {
   margin-top: 20px;
   padding-left: 0px;
   text-align: center;
+  position: relative;
 }
 .paste {
   display: block;
@@ -117,7 +121,9 @@ footer .main {
   background: #333;
   color: #eee;
   text-shadow: 0px 1px 0px #000;
-  white-space: pre-wrap;
+  white-space: pre;
+  word-wrap: normal;
+  overflow: auto;
 }
 .meta {
   display: block;
@@ -128,7 +134,7 @@ footer .main {
   line-height: 32px;
   font-weight: lighter;
   background: -webkit-linear-gradient(180deg, #b1df33, #95c11e 15%);
-  color: #f4eeea;
+  color: #fff;
   font-size: 0.8em;
   border-bottom: 5px solid #739517;
 }
@@ -182,9 +188,8 @@ footer .main {
   display: none;
   position: absolute;
   width: 100%;
-  max-width: 780px;
+  max-width: 800px;
   z-index: 999;
-  top: 85px;
   border-bottom: 5px solid #e5452b;
   padding: 20px;
   background: #f4eeea;

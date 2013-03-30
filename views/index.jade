@@ -4,7 +4,8 @@ block content
     #container
         header
             .main
-                h1.title= title
+                h1.title
+                    a(href='#{base}')= title
                 a.formToggler &#xf067;
 
         .main
@@ -19,7 +20,7 @@ block content
                     div
                         code.paste #{paste}
                 else
-                    img(src='/images/logo.svg', class='logo', alt='ddd')
+                    //img(src='/images/logo.svg', class='logo', alt='ddd')
 
 
                 form(method='post', action='/paste/new', class='leForm #{active}')
