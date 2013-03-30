@@ -9,17 +9,23 @@
 
 *
     box-sizing border-box
+    -moz-box-sizing border-box
+    -webkit-box-sizing border-box
 
 html
     height 100%
 
 body
-    background #f4eeea
+    background-color #E9E0D7
     font-family 'Open Sans', Arial, serif
     margin 0
     padding 0
     height 100%
-    background url('/images/logo.svg') no-repeat center center
+
+body.ddd
+    background-image url('/images/logo.svg')
+    background-repeat no-repeat
+    background-position center center
     background-size 200px
 
 div
@@ -28,16 +34,17 @@ div
 
 #container
     position relative
-    height auto
-    min-height 100%
+    /*height auto
+    min-*/
+    height 100%
     padding-bottom 120px
 
 #container header
     background #edc51d
     color #c7a410
     margin 0
-    height 80px
-    box-shadow 0 5px 0 #c7a410
+    height 85px
+    box-shadow inset 0 -5px 0 #c7a410
 
 #container footer
     background #95c11e
@@ -57,10 +64,10 @@ a
     color white
     text-decoration none
 
-a:hover
+a:hover, .link a:hover
     color #e5452b
 
-a:active
+a:active, .link a:active
     color #95c11e
 
 .title
@@ -104,7 +111,7 @@ header .main, footer .main
     position relative
 
 #container > .main
-    margin-top 20px
+    margin-top 10px
     padding-left 0px
     text-align center
     position relative
@@ -128,13 +135,12 @@ header .main, footer .main
 
 .meta
     display block
-    margin-top 20px
-    margin-bottom 10px
+    margin-bottom 15px
     text-align left
     padding 0px 0px 0px 0px
     line-height 32px
     font-weight lighter
-    //background-color #95c11e
+    background-color #95c11e
     background -webkit-linear-gradient(180deg, #b1df33, #95c11e 15%)
     color white
     text-shadow 0 1px 0 #739517
@@ -190,22 +196,26 @@ header .main, footer .main
 .leForm
     display none
     position absolute
+    top -8px
     width 100%
     max-width 800px
     z-index 999
-    //top 85px
     border-bottom 5px solid #e5452b
     padding 20px
     background #f4eeea
+
+.ddd .leForm
+    top -5px
 
 .leForm.active
     display block
 
 .leForm textarea
     width 100%
-    min-height 150px
     border-radius 2px
     border 1px solid #e5452b
+    resize none
+    overflow auto
 
 button,
 .btn
@@ -283,11 +293,8 @@ footer dd
     margin-left 0px
     padding-left 5px
 
-footer a
+footer a, .link a
     color #edc51d
-
-footer a:hover
-    text-decoration underline
 
 a.fruitsrc
     position absolute

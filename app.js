@@ -24,7 +24,7 @@ app.all('*', function(req, res, next)
 
     // ...
 
-    app.locals.base = req.protocol + "://" + host + req.url;
+    app.locals.base = req.protocol + "://" + host;
     next();
 });
 
@@ -41,7 +41,8 @@ app.get('/paste/:id', function(req, res)
         if (err)
             console.log(err);
         res.render('index.jade', {
-            title: 'dpaste - '+paste.id,
+            title: 'dpaste - ' + paste.id,
+            link: app.locals.base + '/' + paste.id,
             paste: paste.paste,
             fruit: paste.fruit,
             date: new Date(parseInt(paste.created_at)).toDateString(),
@@ -62,6 +63,7 @@ app.post('/paste/new', function(req, res)
     {
         if (err)
             console.log(err);
+        //if (req.headers.user-agent == )
         res.redirect('/paste/' + paste.id);
     });
 });

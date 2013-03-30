@@ -10,22 +10,20 @@ block content
 
         .main
             section.content
+                form(method='post', action='/paste/new', class='leForm #{active}')
+                    textarea(name='paste', placeholder="var dpaste = 'Angry code paster for you and your family';")
+                    button(type='submit', class='btn-red') Add
+
                 if locals.paste
                     ul.meta
                         li.date #{date}
-                        li.language
+                        li.link
+                            a(href='#{link}', title='Permalink')= link
                         li.fruits 
                             i(class='fruit fruit#{fruit}')
 
                     div
                         code.paste #{paste}
-                else
-                    //img(src='/images/logo.svg', class='logo', alt='ddd')
-
-
-                form(method='post', action='/paste/new', class='leForm #{active}')
-                    textarea(name='paste')
-                    button(type='submit', class='btn-red') Add
 
         footer
             .main
