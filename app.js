@@ -17,9 +17,16 @@ app.configure(function()
 // Model
 var Paste = mongoose.model('Paste', mongoose.Schema({ paste: 'string', created_at: 'string', fruit: 'number' }));
 
+// Host check
+var checkHost = function(host)
+{
+    console.log(host);
+}
+
 // Routes
 app.get('/', function(req, res)
 {
+    checkHost(req.get('host'));
     res.render('index.jade', { title: 'dpaste', active: 'active' });
 });
 
