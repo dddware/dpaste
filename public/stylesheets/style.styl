@@ -63,12 +63,13 @@ a:active
 
 .title
     float left
-    display inline-block
+    white-space nowrap
 
 .formToggler
-    float right
+    position absolute
+    right 0px
+    top 0px
     color #edc51d
-    display inline-block
     text-align center
     cursor pointer
     font-size 3em
@@ -93,7 +94,10 @@ a:active
     margin 0px auto
     padding-left 10px
 
-footer .main
+header .main
+    overflow hidden
+
+header .main, footer .main
     position relative
 
 #container > .main
