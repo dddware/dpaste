@@ -15,7 +15,7 @@ app.configure(function()
 });
 
 // Model
-var Paste = mongoose.model('Pat', mongoose.Schema({ paste: 'string', fruit: 'number' }));
+var Paste = mongoose.model('Paste', mongoose.Schema({ paste: 'string', created_at: 'string', fruit: 'number' }));
 
 // Routes
 app.get('/', function(req, res)
@@ -29,7 +29,13 @@ app.get('/paste/:id', function(req, res)
     {
         if (err)
             console.log(err);
-        res.render('index.jade', { title: 'dpaste '+paste.id, paste: paste.paste, fruit: paste.fruit, date: paste.created_at, active: '' });
+        res.render('index.jade', {
+            title: 'dpaste '+paste.id,
+            paste: paste.paste,
+            fruit: paste.fruit,
+            date: new Date(parseInt(paste.created_at)).toDateString(),
+            active: ''
+        });
     });
 });
 
@@ -37,6 +43,7 @@ app.post('/paste/new', function(req, res)
 {
     var paste = new Paste({
         paste: req.param('paste'),
+        created_at: new Date().getTime(),
         fruit: Math.floor(Math.random() * 9)
     });
 

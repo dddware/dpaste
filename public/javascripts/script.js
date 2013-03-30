@@ -1,5 +1,9 @@
-$(document).ready( function () {
-	$('.formToggler').on('click', function () {
-		$('.leForm').slideToggle();
-	});
-});
+(function($)
+{
+    $(function()
+    {
+        $('.formToggler').on('click', function () {
+            $('.leForm').slideToggle();
+        });
+    });
+})(jQuery);

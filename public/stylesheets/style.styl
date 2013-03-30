@@ -1,3 +1,12 @@
+@font-face
+    font-family 'FontAwesome'
+    src url('../fonts/fontawesome-webfont.eot?v=3.0.1')
+    src url('../fonts/fontawesome-webfont.eot?#iefix&v=3.0.1') format('embedded-opentype'),
+         url('../fonts/fontawesome-webfont.woff?v=3.0.1') format('woff'),
+         url('../fonts/fontawesome-webfont.ttf?v=3.0.1') format('truetype')
+    font-weight normal
+    font-style normal
+
 *
     box-sizing border-box
 
@@ -25,7 +34,6 @@ div
     background #edc51d
     color #c7a410
     margin 0
-    padding-left 20px
     height 80px
     box-shadow 0 5px 0 #c7a410
 
@@ -63,9 +71,9 @@ a:active
     display inline-block
     text-align center
     cursor pointer
-    font-size 4em
-    font-family arial,sans
-    line-height 80px
+    font-size 3em
+    font-family 'FontAwesome'
+    line-height 86px
     height 80px
     width 80px
     background #95c11e
@@ -82,7 +90,15 @@ a:active
 .main
     width 100%
     max-width 800px
-    margin 20px auto 0px auto
+    margin 0px auto
+    padding-left 10px
+
+footer .main
+    position relative
+
+#container > .main
+    margin-top 20px
+    padding-left 0px
     text-align center
 
 .paste
@@ -108,14 +124,18 @@ a:active
     padding 0px 0px 0px 0px
     line-height 32px
     font-weight lighter
-    background-color #95c11e
-    background-image linear-gradient(90deg, #95c11e, #b1df33 100.0%)
+    //background-color #95c11e
+    background -webkit-linear-gradient(180deg, #b1df33, #95c11e 15%)
     color #f4eeea
     font-size 0.8em
+    border-bottom: 5px solid #739517
 
 .meta li
     display inline-block
     margin-left 20px
+
+.meta li.date
+    margin-left 10px
 
 .fruits
     float right
@@ -160,7 +180,7 @@ a:active
     display none
     position absolute
     width 100%
-    max-width 800px
+    max-width 780px
     z-index 999
     top 85px
     border-bottom 5px solid #e5452b
@@ -227,3 +247,40 @@ button:active,
 .logo
     height 10em
     width 10em
+
+a.copy
+    font-family 'FontAwesome'
+    color white
+    font-size 14px
+    float left
+    height 32px
+    line-height 32px
+    width 32px
+    text-align center
+    margin-right 5px
+    cursor pointer
+
+footer
+    font-size 11px
+    line-height: 23px
+
+footer dt, footer dd
+    display inline
+
+footer dd
+    margin-left 0px
+    padding-left 5px
+
+footer a
+    color #edc51d
+
+footer a:hover
+    text-decoration underline
+
+a.fruitsrc
+    position absolute
+    right 10px
+    top 0px
+    width 60px
+    height 60px
+    background url('../images/fruit.png') no-repeat left top

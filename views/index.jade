@@ -3,17 +3,18 @@ extends layout
 block content
     #container
         header
-            h1.title dpaste
-            a.formToggler +
+            .main
+                h1.title dpaste
+                a.formToggler &#xf067;
 
         .main
             section.content
                 if locals.paste
                     ul.meta
-                        li.date #{date} 
+                        li.date #{date}
                         li.language
                         li.fruits 
-                            i(class='fruit fruit#{date}')
+                            i(class='fruit fruit#{fruit}')
 
                     div
                         code.paste #{paste}
@@ -26,6 +27,16 @@ block content
                     button(type='submit', class='btn-red') Add
 
         footer
+            .main
+                dl
+                    dt Design
+                    dd
+                        a(href='http://victordarras.fr/', target='_blank', title='Web and print Designer') Victor Darras
+                dl
+                    dt Development
+                    dd
+                        a(href='http://www.zaibatsu.fr/', target='_blank', title='Zaibatsu - Blog de Tom Panier, développeur web') Tom Panier
+                a.fruitsrc(href='http://www.pixeljoint.com/p/19896.htm', target='_blank')
 
         script(src="/javascripts/jquery-1.9.1.min.js")
         script(src="/javascripts/script.js")
