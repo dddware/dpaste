@@ -38,16 +38,20 @@
         }
     }
 
+    var leForm;
+
     function setFormHeight()
     {
         var height = $('#container').height() - ($('header').outerHeight() + $('footer').outerHeight());
-        $('.leForm textarea').height(height);
+        leForm.find('textarea').height(height);
     }
 
     $(function()
     {
+        leForm = $('.leForm');
+
         $('.formToggler').on('click', function () {
-            $('.leForm').slideToggle();
+            leForm.slideToggle();
             setFormHeight();
         });
 
@@ -55,6 +59,15 @@
         {
             setFormHeight();
         });
+
+        leForm.on('submit', function(event)
+        {
+            if ( ! $.trim(leForm.find('textarea').val()))
+            {
+                event.preventDefault();
+                leForm.addClass('alerted');
+            }
+        })
 
         setFormHeight();
         initPlaceHolders();

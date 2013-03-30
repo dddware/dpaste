@@ -53,19 +53,24 @@ app.get('/paste/:id', function(req, res)
 
 app.post('/paste/new', function(req, res)
 {
-    var paste = new Paste({
-        paste: req.param('paste'),
-        created_at: new Date().getTime(),
-        fruit: Math.floor(Math.random() * 9)
-    });
-
-    paste.save(function(err)
+    if (lepaste = req.param('paste'))
     {
-        if (err)
-            console.log(err);
-        //if (req.headers.user-agent == )
-        res.redirect('/paste/' + paste.id);
-    });
+        var paste = new Paste({
+            paste: lepaste,
+            created_at: new Date().getTime(),
+            fruit: Math.floor(Math.random() * 9)
+        });
+
+        paste.save(function(err)
+        {
+            if (err)
+                console.log(err);
+            //if (req.headers.user-agent == )
+            res.redirect('/paste/' + paste.id);
+        });
+    }
+
+    res.redirect('/');
 });
 
 app.listen(3000);

@@ -201,8 +201,9 @@ header .main, footer .main
     max-width 800px
     z-index 999
     border-bottom 5px solid #e5452b
-    padding 20px
+    padding 20px 20px 15px
     background #f4eeea
+    text-align left
 
 .ddd .leForm
     top -5px
@@ -217,11 +218,31 @@ header .main, footer .main
     resize none
     overflow auto
 
+.leForm .alert
+    font-size 13px
+    font-weight bold
+    color #e5452b
+    max-width 0px
+    display inline-block
+    white-space nowrap
+    overflow hidden
+    transition all 1s ease-out
+    -ms-transition all 1s ease-out
+    -moz-transition all 1s ease-out
+    -webkit-transition all 1s ease-out
+
+.leForm.alerted .alert
+    max-width 100%
+
+.leForm button
+    margin-right 10px
+
 button,
 .btn
-    display block
+    display inline-block
     color white
     border-radius 1px
+    margin-top 5px
     padding 10px 15px
     border none
     background-color #333333
