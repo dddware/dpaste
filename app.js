@@ -46,7 +46,7 @@ app.get('/paste/:id', function(req, res)
             console.log(err);
         res.render('index.jade', {
             title: 'dpaste - ' + paste.id,
-            link: app.locals.base + '/' + paste.id,
+            link: app.locals.base + '/paste/' + paste.id,
             paste: paste.paste,
             fruit: paste.fruit,
             date: new Date(parseInt(paste.created_at)).toDateString(),

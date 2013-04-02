@@ -67,7 +67,6 @@
             }
         });
 
-        // Rainbow
         if (code.length)
         {
             var link = $('li.link a'), lang = $('li.lang select');
@@ -80,8 +79,7 @@
 
             if (hash = location.hash.substring(1))
             {
-                var new_href = link.data('base-href') + '#' + hash;
-                link.attr('href', new_href).text(new_href);
+                link.attr('href', link.data('base-href') + '#' + hash);
                 lang.find('option[value="' + hash + '"]').prop('selected', true);
                 code.attr('data-language', hash);
                 Rainbow.color();
