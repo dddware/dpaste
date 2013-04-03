@@ -32,10 +32,7 @@ code span {
   color: #7d05f5;
 }
 .comment {
-  color: #223576;
-}
-.javascript .comment {
-  color: #535353;
+  color: #425596;
 }
 .meta,
 .entity {
