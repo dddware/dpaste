@@ -6,13 +6,16 @@ block content
             .main
                 h1.title
                     a(href='#{base}')= title
-                a.formToggler &#xf067;
+                if locals.paste
+                    a.formToggler &#xf068;
+                else
+                    a.formToggler &#xf067;
 
         .main
             section.content
                 form(method='post', action='/paste/new', class='leForm #{active}', autocomplete='off')
                     textarea(name='paste', placeholder="var dpaste = 'Angry code paster for you and your family';")
-                    button(type='submit', class='btn-red') Add
+                    button(type='submit', class='btn-red') &#xf00c;
                     span.alert Let's put some code in there, duh?
 
                 if locals.paste
