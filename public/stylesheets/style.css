@@ -89,6 +89,12 @@ a:active,
   -webkit-transition: all 0.1s;
   transition: all 0.1s;
 }
+.formToggler:before {
+  content: '\F067';
+}
+.formToggler.on:before {
+  content: '\F068';
+}
 .formToggler:hover {
   color: #f1d14c;
 }

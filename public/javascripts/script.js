@@ -51,6 +51,7 @@
         $('.formToggler').on('click', function () {
             leForm.slideToggle();
             setFormHeight();
+            $(this).toggleClass('on');
         });
 
         $(window).on('resize', function()
