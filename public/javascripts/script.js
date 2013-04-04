@@ -40,7 +40,7 @@
 
     var leForm, code, setFormHeight = function()
     {
-        var height = $('body').height() - 283;
+        var height = $('body').height() - 278;
         leForm.find('textarea').height(height);
     };
 
