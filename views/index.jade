@@ -1,64 +1,77 @@
-extends layout
+doctype 5
+html
 
-block content
-    #container
-        header
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1")
+        meta(name="format-detection", content="telephone=no")
+        //if IE
+            meta(http-equiv='X-UA-Compatible', content='IE=edge')
+        title= title
+        link(rel='stylesheet', href='/stylesheets/style.css')
+        link(rel='stylesheet', href='/stylesheets/rainbow.css')
+        //if lte IE 8
+            script(src="http://html5shim.googlecode.com/svn/trunk/html5.js")
+
+    body(class="#{locals.paste ? '' : 'ddd'}")
+        #container
+            header
+                .main
+                    h1.title
+                        a(href='#{base}')= title
+                    if locals.paste
+                        a.formToggler
+                    else
+                        a.formToggler.on
+
             .main
-                h1.title
-                    a(href='#{base}')= title
-                if locals.paste
-                    a.formToggler
-                else
-                    a.formToggler.on
+                section.content
+                    form(method='post', action='/paste/new', class='leForm #{active}', autocomplete='off')
+                        textarea(name='paste', placeholder="var dpaste = 'Angry code paster for you and your family';")
+                        button(type='submit', class='btn-red') &#xf00c;
+                        span.alert Let's put some code in there, duh?
 
-        .main
-            section.content
-                form(method='post', action='/paste/new', class='leForm #{active}', autocomplete='off')
-                    textarea(name='paste', placeholder="var dpaste = 'Angry code paster for you and your family';")
-                    button(type='submit', class='btn-red') &#xf00c;
-                    span.alert Let's put some code in there, duh?
+                    if locals.paste
+                        ul.meta
+                            li.date #{date}
+                            li.link
+                                a(href='#{link}', data-base-href='#{link}') Permalink
+                            li.fruits 
+                                i(class='fruit fruit#{fruit}')
+                            li.lang
+                                form(name='gabuh')
+                                    select(name='lang', autocomplete='off')
+                                        option(value='') Plain text
+                                        option(value='javascript') JavaScript
+                                        option(value='coffeescript') CoffeeScript
+                                        option(value='css') CSS
+                                        option(value='html') HTML
+                                        option(value='php') PHP
+                                        option(value='ruby') Ruby
+                                        option(value='python') Python
+                                        option(value='go') Go
+                                        option(value='haskell') Haskell
+                                        option(value='shell') Shell
 
-                if locals.paste
-                    ul.meta
-                        li.date #{date}
-                        li.link
-                            a(href='#{link}', data-base-href='#{link}') Permalink
-                        li.fruits 
-                            i(class='fruit fruit#{fruit}')
-                        li.lang
-                            form(name='gabuh')
-                                select(name='lang', autocomplete='off')
-                                    option(value='') Plain text
-                                    option(value='javascript') JavaScript
-                                    option(value='coffeescript') CoffeeScript
-                                    option(value='css') CSS
-                                    option(value='html') HTML
-                                    option(value='php') PHP
-                                    option(value='ruby') Ruby
-                                    option(value='python') Python
-                                    option(value='go') Go
-                                    option(value='haskell') Haskell
-                                    option(value='shell') Shell
+                        div
+                            code.paste #{paste}
 
-                    div
-                        code.paste #{paste}
+            footer
+                .main
+                    dl
+                        dt Design
+                        dd
+                            a(href='http://victordarras.fr/', target='_blank', title='Web and print Designer') Victor Darras
+                    dl
+                        dt Development
+                        dd
+                            a(href='http://www.zaibatsu.fr/', target='_blank', title='Zaibatsu - Blog de Tom Panier, développeur web') Tom Panier
+                    dl
+                        dt Powered by
+                        dd
+                            a(href='http://expressjs.com/', target='_blank') express.js
+                    a.fruitsrc(href='http://www.pixeljoint.com/p/19896.htm', target='_blank')
 
-        footer
-            .main
-                dl
-                    dt Design
-                    dd
-                        a(href='http://victordarras.fr/', target='_blank', title='Web and print Designer') Victor Darras
-                dl
-                    dt Development
-                    dd
-                        a(href='http://www.zaibatsu.fr/', target='_blank', title='Zaibatsu - Blog de Tom Panier, développeur web') Tom Panier
-                dl
-                    dt Powered by
-                    dd
-                        a(href='http://expressjs.com/', target='_blank') express.js
-                a.fruitsrc(href='http://www.pixeljoint.com/p/19896.htm', target='_blank')
-
-        script(src="/javascripts/jquery-1.9.1.min.js")
-        script(src="/javascripts/script.js")
-        script(src="/javascripts/rainbow-custom.min.js")
+            script(src="/javascripts/jquery-1.9.1.min.js")
+            script(src="/javascripts/script.js")
+            script(src="/javascripts/rainbow-custom.min.js")
