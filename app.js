@@ -9,6 +9,7 @@ app.configure(function()
 {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
+    app.set('views', __dirname + '/views');
     app.use(require('stylus').middleware({ src: __dirname + '/public' }));
     app.use(app.router);
     app.use(express.static(__dirname + '/public'));
@@ -44,6 +45,10 @@ app.get('/paste/:id', function(req, res)
     {
         if (err)
             console.log(err);
+
+        if (req.headers['user-agent'].match(/curl/))
+            res.send(200, paste.paste);
+
         res.render('index.jade', {
             title: 'dpaste - ' + paste.id,
             link: app.locals.base + '/paste/' + paste.id,
