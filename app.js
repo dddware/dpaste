@@ -13,8 +13,8 @@ app.configure(function()
     app.use(require('stylus').middleware({ src: __dirname + '/public' }));
     app.use(app.router);
     app.use(express.static(__dirname + '/public'));
-    app.domain = 'www.dpaste.cc';
-    app.port = 3000;
+    app.domain = 'dpaste.cc';
+    app.port = 3001;
 });
 
 // Model
