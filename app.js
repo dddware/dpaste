@@ -25,12 +25,7 @@ app.all('*', function(req, res, next)
 {
     // Set base URL for templates
     app.locals.base = req.protocol + '://' + app.domain;
-
-    // Forbid non-canonical requests
-    if (req.get('host') != 'localhost:' + app.port)
-        res.redirect(301, app.locals.base + req.url);
-    else
-        next();
+    next();
 });
 
 // Routes
