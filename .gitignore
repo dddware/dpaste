@@ -3,3 +3,4 @@ log
 1
 passenger*
 tmp
+public/stylesheets/*.css
