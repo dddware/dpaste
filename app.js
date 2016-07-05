@@ -10,7 +10,10 @@ app.configure(function() {
     app.use(express.bodyParser());
     app.use(express.methodOverride());
     app.set('views', __dirname + '/views');
-    app.use(require('stylus').middleware({ src: __dirname + '/public' }));
+    app.use(require('stylus').middleware({
+        src: __dirname + '/stylesheets',
+        dest: __dirname + '/public/stylesheets'
+    }));
     app.use(app.router);
     app.use(express.static(__dirname + '/public'));
     app.port = 3001;
