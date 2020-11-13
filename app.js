@@ -3,7 +3,7 @@ var express = require('express'),
     mongoose = require('mongoose'),
     app = express();
 
-mongoose.connect('localhost', 'dpaste');
+mongoose.connect('mongodb://localhost:27017/dpaste', { useNewUrlParser: true });
 
 // Configuration
 app.configure(function() {
